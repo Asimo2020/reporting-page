@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>رویدادهای آینده</title>
+    <style>
+        .past { background-color: #f2f2f2; }
+        .upcoming { background-color: #e0ffe0; }
+    </style>
+</head>
+<body>
+    <h1>رویدادهای آینده و گذشته</h1>
+    <ul>
+        {% for event in events %}
+            <li class="{% if event.date < now %}past{% else %}upcoming{% endif %}">
+                <strong>{{ event.name }}</strong><br>
+                تاریخ: {{ event.date }}<br>
+                مکان: {{ event.location }}<br>
+                توضیحات: {{ event.description }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
